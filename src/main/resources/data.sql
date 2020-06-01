@@ -1,4 +1,5 @@
 CREATE TABLE IF NOT EXISTS `food_truck_master`(
+
 `location_id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 `applicant` varchar(60) NOT NULL,
 `facility_type` varchar(20) DEFAULT NULL,

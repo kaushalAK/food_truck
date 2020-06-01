@@ -21,12 +21,8 @@ public class FoodTruck {
 
     @Id
     @GeneratedValue(strategy = javax.persistence.GenerationType.IDENTITY)
-    @Column(name = "id")
-    @JsonProperty("id")
-    private long id;
-
-    @Column (name = "location_id")
-    @JsonProperty ("location_id")
+    @Column(name = "location_id")
+    @JsonProperty("location_id")
     private long locationId;
 
 

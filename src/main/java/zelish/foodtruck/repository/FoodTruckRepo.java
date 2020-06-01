@@ -43,8 +43,8 @@ public interface FoodTruckRepo extends JpaRepository<FoodTruck,Long> {
 
     @Transactional
     @Modifying
-    @Query(value = "SELECT location_description from food_truck_master where latitude =:latitude and longitude =:longitude and facility_type = 'Truck'",nativeQuery = true)
-    String getLocationData(@Param("latitude") String latitude, @Param("longitude") String longitude);
+    @Query(value = "SELECT * from food_truck_master where latitude =:latitude and longitude =:longitude and facility_type = 'Truck'",nativeQuery = true)
+    List<FoodTruck>  getLocationData(@Param("latitude") Float latitude, @Param("longitude") Float longitude);
 
 
 

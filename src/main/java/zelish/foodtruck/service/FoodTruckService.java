@@ -26,7 +26,7 @@ public class FoodTruckService {
 
 
         FoodTruck fdresponse = foodTruckRepo.save(foodTruck);
-        if(fdresponse.getId() >0){
+        if(fdresponse.getLocationId() >0){
             foodTruckResponse.setStatus(FoodTruckResponse.FoodTruckStatus.ADDSUCCESS);
         }
         return foodTruckResponse;
@@ -37,11 +37,12 @@ public class FoodTruckService {
         FoodTruckResponse foodTruckResponse = new FoodTruckResponse();
         FoodTruck foodTruck = prepareFoodTruckUpdateObject(foodTruckUpdateRequest);
 
-        Long productId  = foodTruckRepo.save(foodTruck).getLocationId();
+        Long locationId  = foodTruckRepo.save(foodTruck).getLocationId();
 
-        if(productId != 0){
+        if(locationId != 0){
             foodTruckResponse.setStatus(FoodTruckResponse.FoodTruckStatus.UPDATESUCCESS);
         }
+        else foodTruckResponse.setStatus(FoodTruckResponse.FoodTruckStatus.UPDATEFAILED);
         return foodTruckResponse;
     }
 
@@ -136,13 +137,18 @@ public class FoodTruckService {
                 break;
         }
 
+        if(foodTruckResponse.getFoodTruck() != null){
+            foodTruckResponse.setStatus(FoodTruckResponse.FoodTruckStatus.GETSUCCESS);
+        }
+        else foodTruckResponse.setStatus(FoodTruckResponse.FoodTruckStatus.GETFAILED);
 
         return foodTruckResponse;
     }
 
-    public FoodTruckResponse getLocationData(String latitude, String longitude){
+    public FoodTruckResponse getLocationData(Float latitude, Float longitude){
         FoodTruckResponse foodTruckResponse = new FoodTruckResponse();
         foodTruckResponse.setFoodTruck(foodTruckRepo.getLocationData(latitude,longitude));
+        foodTruckResponse.setStatus(FoodTruckResponse.FoodTruckStatus.GETSUCCESS);
         return foodTruckResponse;
     }
 }

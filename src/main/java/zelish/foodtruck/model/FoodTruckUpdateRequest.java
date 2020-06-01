@@ -15,8 +15,8 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 public class FoodTruckUpdateRequest {
 
-    @Column(name = "location_id")
-    @JsonProperty("location_id")
+    @Column(name = "id")
+    @JsonProperty("id")
     private long locationId;
 
 

@@ -12,7 +12,9 @@ public class FoodTruckResponse {
         ADDSUCCESS,
         UPDATESUCCESS,
         DELETESUCCESS,
-        GETSUCCESS
+        GETSUCCESS,
+        UPDATEFAILED,
+        GETFAILED
     }
 
     @JsonProperty ("food_truck")

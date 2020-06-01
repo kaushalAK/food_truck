@@ -15,7 +15,7 @@ import zelish.foodtruck.service.FoodTruckService;
 public class FoodTruckAPI {
     private static final String FOODTRUCK_ADD_API_URL = "/api/zelish/truck/add";
     private static final String FOODTRUCK_UPDATE_API_URL = "/api/zelish/truck/update";
-    private static final String FOODTRUCK_DELETE_API_URL = "/api/zelish/truck/update";
+    private static final String FOODTRUCK_DELETE_API_URL = "/api/zelish/truck/delete";
     private static final String GETEXPIREDTRUCKS = "/api/zelish/truck/expired";
     private static final String GETDATA = "/api/zelish/truck/getdata";
     private static final String GETLOCATION = "/api/zelish/truck/getlocation";
@@ -49,7 +49,7 @@ public class FoodTruckAPI {
     }
 
     @DeleteMapping(value = FOODTRUCK_DELETE_API_URL)
-    public ResponseEntity deleteFoodTruckAPI(@RequestHeader ("location_id") Long locationid){
+    public ResponseEntity deleteFoodTruckAPI(@RequestHeader ("id") Long locationid){
         AppResponse appResponse = new AppResponse();
         FoodTruckResponse foodTruckResponse = foodTruckService.deleteFoodTruckEntry(locationid);
         appResponse.setData(foodTruckResponse);
@@ -77,7 +77,7 @@ public class FoodTruckAPI {
 
 
     @GetMapping(value = GETLOCATION)
-    public ResponseEntity getLocationDataAPI(@RequestHeader ("latitude") String latitude, @RequestHeader ("longitude") String longitude){
+    public ResponseEntity getLocationDataAPI(@RequestHeader ("latitude") Float latitude, @RequestHeader ("longitude") Float longitude){
         AppResponse appResponse = new AppResponse();
         FoodTruckResponse foodTruckResponse = foodTruckService.getLocationData(latitude, longitude);
         appResponse.setData(foodTruckResponse);
