@@ -1,6 +1,8 @@
 # food_truck
 SanFrancisco Food Truck API
 
+Import the collection using: https://www.getpostman.com/collections/89c81a780261c3a6576e
+
 
 Using H2 in memory DB
 data model consist of master_db for food_truck management
