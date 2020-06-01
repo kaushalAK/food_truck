@@ -3,6 +3,7 @@ package zelish.foodtruck.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import zelish.foodtruck.model.AppResponse;
 import zelish.foodtruck.model.FoodTruckAddRequest;
@@ -10,6 +11,7 @@ import zelish.foodtruck.model.FoodTruckResponse;
 import zelish.foodtruck.model.FoodTruckUpdateRequest;
 import zelish.foodtruck.service.FoodTruckService;
 
+@Controller
 public class FoodTruckAPI {
     private static final String FOODTRUCK_ADD_API_URL = "/api/zelish/truck/add";
     private static final String FOODTRUCK_UPDATE_API_URL = "/api/zelish/truck/update";
